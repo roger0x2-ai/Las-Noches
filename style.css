@@ -1,0 +1,580 @@
+/* =========================
+   GENERAL PAGE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background:
+        radial-gradient(ellipse at 15% 20%, #351653 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 80%, #291044 0%, transparent 45%),
+        #08060d;
+}
+
+/* ANIMATED BACKGROUND GLOW */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(153, 70, 220, 0.12),
+        transparent 35%
+    );
+
+    animation: atmosphere 12s ease-in-out infinite alternate;
+}
+
+@keyframes atmosphere {
+    from {
+        transform: translate(-5%, -3%) scale(1);
+    }
+
+    to {
+        transform: translate(5%, 3%) scale(1.2);
+    }
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: 90%;
+    max-width: 480px;
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(20, 16, 27, 0.95);
+
+    border: 1px solid #8752b5;
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 20px rgba(137, 66, 200, 0.25),
+        0 0 50px rgba(137, 66, 200, 0.15);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    font-size: 38px;
+    letter-spacing: 7px;
+
+    color: #f5efff;
+
+    text-shadow: 0 0 15px #9b59d0;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    color: #b99bd5;
+
+    margin-bottom: 35px;
+}
+
+/* =========================
+   PASSWORD INPUT
+========================= */
+
+.password-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+.password-container input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 14px;
+
+    background: #100c17;
+    color: white;
+
+    border: 1px solid #604080;
+    border-radius: 8px;
+
+    outline: none;
+    font-size: 14px;
+}
+
+.password-container input:focus {
+    border-color: #bd83f0;
+
+    box-shadow: 0 0 12px rgba(189, 131, 240, 0.4);
+}
+
+/* =========================
+   SHOW / HIDE BUTTON
+========================= */
+
+.password-container button {
+    appearance: none;
+    -webkit-appearance: none;
+
+    padding: 14px 16px;
+
+    background: linear-gradient(
+        135deg,
+        #9145c7,
+        #35134f
+    ) !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #d09bff !important;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, 0.4),
+        inset 0 0 8px rgba(255, 255, 255, 0.08);
+
+    transition: all 0.3s ease;
+}
+
+.password-container button:hover {
+    background: linear-gradient(
+        135deg,
+        #bd69f5,
+        #63318c
+    ) !important;
+
+    box-shadow:
+        0 0 12px #a855f7,
+        0 0 25px rgba(168, 85, 247, 0.5);
+
+    transform: translateY(-2px);
+}
+
+.password-container button:active {
+    transform: scale(0.96);
+}
+
+.password-container button:focus-visible {
+    outline: 2px solid #e0baff;
+    outline-offset: 3px;
+}
+
+/* =========================
+   STRENGTH SECTION
+========================= */
+
+.strength {
+    margin-top: 10px;
+}
+
+.strength p {
+    color: #c7a5e8;
+
+    letter-spacing: 3px;
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+/* =========================
+   STRENGTH BAR
+========================= */
+
+.strength-bar {
+    width: 100%;
+    height: 12px;
+
+    background: #302438;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    margin-bottom: 15px;
+}
+
+.strength-fill {
+    width: 0%;
+    height: 100%;
+
+    background: #a855f7;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.4s ease,
+        background-color 0.4s ease;
+
+    box-shadow: 0 0 12px #a855f7;
+}
+
+/* =========================
+   STRENGTH TEXT
+========================= */
+
+.strength-text {
+    color: #e3d3f5;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 0;
+        align-items: center;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+        padding: 28px 18px;
+        margin: 10px 0;
+    }
+
+    .title {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 28px;
+    }
+
+    .password-container {
+        gap: 7px;
+    }
+
+    .password-container input {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    .password-container button {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    .strength p {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .recommendation {
+        padding: 16px 12px;
+    }
+
+    .recommendation button {
+        width: 100%;
+        padding: 12px 8px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    #recommendationText {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    #recommendationHints {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    #suggestedPassword {
+        font-size: 12px;
+    }
+
+    .strength-text {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 360px) {
+
+    .title {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .password-container {
+        gap: 5px;
+    }
+
+    .password-container button {
+        padding: 12px 8px;
+        font-size: 11px;
+    }
+
+    #recommendationText {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+}
+/* =========================
+   PASSWORD RECOMMENDATIONS
+========================= */
+
+.recommendation {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: rgba(45, 22, 65, 0.55);
+
+    border: 1px solid #8752b5;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 15px rgba(137, 66, 200, 0.2),
+        inset 0 0 12px rgba(137, 66, 200, 0.08);
+
+    animation: recommendationGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes recommendationGlow {
+    from {
+        box-shadow: 0 0 10px rgba(137, 66, 200, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 22px rgba(168, 85, 247, 0.4);
+    }
+}
+
+/* WARNING TEXT */
+
+.recommendation p:first-child {
+    color: #d6a5ff;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+/* GENERATE BUTTON */
+
+.recommendation button {
+    padding: 13px 18px;
+
+    background: linear-gradient(
+        135deg,
+        #9145c7,
+        #35134f
+    );
+
+    color: white;
+
+    border: 1px solid #d09bff;
+    border-radius: 8px;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+
+    transition: all 0.3s ease;
+}
+
+.recommendation button:hover {
+    background: linear-gradient(
+        135deg,
+        #bd69f5,
+        #63318c
+    );
+
+    box-shadow: 0 0 20px #a855f7;
+
+    transform: translateY(-2px);
+}
+
+.recommendation button:active {
+    transform: scale(0.96);
+}
+
+/* GENERATED PASSWORD */
+
+#suggestedPassword {
+    margin-top: 18px;
+    padding: 12px;
+
+    background: #100c17;
+
+    color: #cba5ff;
+
+    border: 1px solid #8752b5;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    overflow-wrap: anywhere;
+
+    box-shadow: 0 0 12px rgba(137, 66, 200, 0.2);
+}
+
+/* PRESERVE HIDDEN ELEMENTS */
+
+.recommendation[hidden],
+#suggestedPassword[hidden] {
+    display: none !important;
+}
+/* =========================
+   COPY PASSWORD
+========================= */
+
+#copyPassword {
+    margin-top: 12px;
+    width: 100%;
+
+    background: linear-gradient(
+        135deg,
+        #63318c,
+        #291044
+    );
+
+    border: 1px solid #bd83f0;
+
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+#copyPassword:hover {
+    background: linear-gradient(
+        135deg,
+        #a855f7,
+        #63318c
+    );
+
+    box-shadow: 0 0 18px #a855f7;
+
+    transform: translateY(-2px);
+}
+
+#copyPassword:active {
+    transform: scale(0.97);
+}
+
+#copyStatus {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#copyPassword[hidden] {
+    display: none !important;
+}
+#recommendationText {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #d9c8ff;
+    text-shadow: 0 0 8px #8b45ff;
+}
+
+#recommendationHints {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+    color: #b9a6d9;
+}
+/* Privacy notice */
+
+.privacy-notice {
+    margin-top: 14px;
+    margin-bottom: 22px;
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #b9a6d9;
+    opacity: 0.85;
+}
+/* ACCESSIBILITY — REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* PRIVACY NOTICE — MOBILE */
+
+@media (max-width: 480px) {
+    .privacy-notice {
+        font-size: 10px;
+        letter-spacing: 0.7px;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+}

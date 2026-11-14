@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LAS NOCHES | Password Reiatsu Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1 class="title">LAS NOCHES</h1>
+
+        <p class="subtitle">PASSWORD REIATSU ANALYZER</p>
+
+        <!-- Password input area -->
+        <div class="password-container">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Your Password"
+            >
+
+            <button type="button" id="togglePassword">
+                SHOW
+            </button>
+
+        </div>
+
+        <!-- Privacy notice -->
+        <p class="privacy-notice">
+            Your password is analyzed locally in your browser.
+            Never enter a password you actually use.
+        </p>
+
+        <!-- Recommendation area -->
+        <div class="recommendation" id="recommendation" hidden>
+
+            <p id="recommendationText"></p>
+
+            <p id="recommendationHints"></p>
+
+            <button type="button" id="generatePassword">
+                GENERATE STRONG PASSWORD
+            </button>
+
+            <p id="suggestedPassword" hidden></p>
+
+            <button type="button" id="copyPassword" hidden>
+                COPY PASSWORD
+            </button>
+
+            <p id="copyStatus" aria-live="polite"></p>
+
+        </div>
+
+        <!-- Password strength analyzer -->
+        <div class="strength section">
+
+            <p>SPIRITUAL PRESSURE</p>
+
+            <div class="strength-bar">
+                <div class="strength-fill"></div>
+            </div>
+
+            <span class="strength-text">
+                AWAITING REIATSU...
+            </span>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
